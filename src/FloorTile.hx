@@ -11,7 +11,7 @@ import TrapHandler;
 
 class FloorTile extends ClickableTile
 {	
-	var isFilled :Bool= false;
+	var tileOnTop : TrapTile = null;
 	
 	public function new( XCoord : Int = 0, YCoord : Int = 0, ?TileWidth : Float
 		, ?TileHeight : Float, ?graphicFileLocation : String, ?theLayer : DisplayObjectContainer, TileValue : Int = 0 ) 
@@ -23,19 +23,19 @@ class FloorTile extends ClickableTile
 	{
 		super.update();
 		
-		if ( isClicked && !isFilled)
-		{
-			trace("spawning new traptile");
-			isFilled = true;
-			
+		if ( isClicked && tileOnTop == null)
+		{			
+			var theTrapTile : TrapTile;
 			if ( Registry.game.trapHandler.trapToPlace == TrapDirection.Up )
-				new TrapTile(xCoord, yCoord, 40, 40, "img/up.png", layer, 0);
+				theTrapTile = new TrapTile(xCoord, yCoord, 40, 40, "img/up.png", layer, 0);
 			else if ( Registry.game.trapHandler.trapToPlace == TrapDirection.Down )
-				new TrapTile(xCoord, yCoord, 40, 40, "img/down.png", layer, 0);
+				theTrapTile = new TrapTile(xCoord, yCoord, 40, 40, "img/down.png", layer, 0);
 			else if ( Registry.game.trapHandler.trapToPlace == TrapDirection.Left )
-				new TrapTile(xCoord, yCoord, 40, 40, "img/left.png", layer, 0);
+				theTrapTile = new TrapTile(xCoord, yCoord, 40, 40, "img/left.png", layer, 0);
 			else
-				new TrapTile(xCoord, yCoord, 40, 40, "img/right.png", layer, 0);
+				theTrapTile = new TrapTile(xCoord, yCoord, 40, 40, "img/right.png", layer, 0);
+				
+			tileOnTop = theTrapTile;
 		}
 	}
 }
