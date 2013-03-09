@@ -13,7 +13,9 @@ import nme.Lib;
 
 class Game extends JKGame
 {	
+	private var playAreaLayer:JKLayer;
 	public var trapHandler:TrapHandler;
+	public var player : Player;
 	
 	public function new() 
 	{
@@ -21,7 +23,13 @@ class Game extends JKGame
 		
 		setupPlayArea();
 		setupInputHandler();
+		setupPlayer();
 		setupTrapHandler();
+	}
+	
+	private function setupPlayer() 
+	{
+		player = new Player(0, 0, 40, 40, playAreaLayer);
 	}
 	
 	private function setupTrapHandler() 
@@ -37,7 +45,7 @@ class Game extends JKGame
 	private function setupPlayArea() 
 	{		
 		var bgLayer : JKLayer = new JKLayer(stage);
-		var playAreaLayer : JKLayer = new JKLayer(bgLayer);
+		playAreaLayer = new JKLayer(bgLayer);
 		
 		var playArea : PlayArea = new PlayArea(10, 10, playAreaLayer);
 		playArea.populateTileMap(FloorTile, [10, 10, 40, 40, "img/tile.png", playAreaLayer]);
