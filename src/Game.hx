@@ -12,13 +12,26 @@ import nme.Lib;
  */
 
 class Game extends JKGame
-{
-
+{	
+	public var trapHandler:TrapHandler;
+	
 	public function new() 
 	{
 		super();
 		
 		setupPlayArea();
+		setupInputHandler();
+		setupTrapHandler();
+	}
+	
+	private function setupTrapHandler() 
+	{
+		trapHandler = new TrapHandler();
+	}
+	
+	private function setupInputHandler() 
+	{
+		var inputHandler : InputHandler = new InputHandler();
 	}
 	
 	private function setupPlayArea() 

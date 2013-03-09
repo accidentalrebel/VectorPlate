@@ -26,7 +26,7 @@ class Main extends Sprite
 	private function init(e) 
 	{
 		// entry point
-		new Game();
+		Registry.game = new Game();
 		// new to Haxe NME? please read *carefully* the readme.txt file!
 	}
 	
