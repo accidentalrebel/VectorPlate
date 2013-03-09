@@ -20,12 +20,12 @@ class ClickableTile extends JKTile
 	
 	override private function update():Dynamic 
 	{		
+		super.update();
+		
 		if ( JKGame.mouse.justPressed() )			// If the mouse is pressed
 		{
 			checkIfClicked();
 		}
-			
-		return super.update();
 	}
 	
 	override private function lateUpdate():Dynamic 
@@ -39,8 +39,7 @@ class ClickableTile extends JKTile
 		if ( mouseX > 0 && mouseX < width					// We use the mouseX and mouseY positions to determine
 			&& mouseY > 0 && mouseY < height )				// If this button is clicked
 		{
-			isClicked = true;
-			trace(name + " is clicked");
+			isClicked = true;			
 		}		
 	}
 }

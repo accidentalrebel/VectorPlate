@@ -15,4 +15,15 @@ class FloorTile extends ClickableTile
 	{
 		super(XCoord, YCoord, TileWidth, TileHeight, graphicFileLocation, theLayer, TileValue);
 	}
+	
+	override private function update():Dynamic 
+	{
+		super.update();
+		
+		if ( isClicked )
+		{
+			trace("spawning new traptile");
+			new TrapTile(xCoord, yCoord, 40, 40, "img/marker.png", layer, 0);
+		}
+	}
 }
