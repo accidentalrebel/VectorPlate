@@ -30,6 +30,10 @@ class FloorTile extends ClickableTile
 			
 			if ( Registry.game.trapHandler.trapToPlace == TrapDirection.Up )
 				new TrapTile(xCoord, yCoord, 40, 40, "img/up.png", layer, 0);
+			else if ( Registry.game.trapHandler.trapToPlace == TrapDirection.Down )
+				new TrapTile(xCoord, yCoord, 40, 40, "img/down.png", layer, 0);
+			else if ( Registry.game.trapHandler.trapToPlace == TrapDirection.Left )
+				new TrapTile(xCoord, yCoord, 40, 40, "img/left.png", layer, 0);
 			else
 				new TrapTile(xCoord, yCoord, 40, 40, "img/right.png", layer, 0);
 		}

@@ -27,6 +27,18 @@ class InputHandler extends JKObject
 		{
 			Registry.game.trapHandler.trapToPlace = TrapDirection.Up;
 		}
+		else if ( JKGame.keyboard.checkIfKeyPressed(Keyboard.S))
+		{
+			Registry.game.trapHandler.trapToPlace = TrapDirection.Down;
+		}
+		else if ( JKGame.keyboard.checkIfKeyPressed(Keyboard.A))
+		{
+			Registry.game.trapHandler.trapToPlace = TrapDirection.Left;
+		}
+		else if ( JKGame.keyboard.checkIfKeyPressed(Keyboard.D))
+		{
+			Registry.game.trapHandler.trapToPlace = TrapDirection.Right;
+		}		
 	}
 	
 }
