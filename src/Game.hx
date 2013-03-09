@@ -3,6 +3,7 @@ import jkEngine.JKGame;
 import jkEngine.JKLayer;
 import jkEngine.JKSprite;
 import jkEngine.JKText;
+import nme.events.Event;
 import nme.Lib;
 
 /**
@@ -16,7 +17,6 @@ class Game extends JKGame
 	public function new() 
 	{
 		super();
-		Lib.trace("Test");
 		
 		setupPlayArea();
 	}
