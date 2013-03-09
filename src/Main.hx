@@ -1,5 +1,6 @@
 package ;
 
+import jkEngine.JKGame;
 import nme.display.Sprite;
 import nme.events.Event;
 import nme.Lib;
@@ -25,7 +26,7 @@ class Main extends Sprite
 	private function init(e) 
 	{
 		// entry point
-		
+		new Game();
 		// new to Haxe NME? please read *carefully* the readme.txt file!
 	}
 	
