@@ -10,6 +10,8 @@ import nme.display.DisplayObjectContainer;
 
 class FloorTile extends ClickableTile
 {	
+	var isFilled :Bool= false;
+	
 	public function new( XCoord : Int = 0, YCoord : Int = 0, ?TileWidth : Float
 		, ?TileHeight : Float, ?graphicFileLocation : String, ?theLayer : DisplayObjectContainer, TileValue : Int = 0 ) 
 	{
@@ -20,9 +22,10 @@ class FloorTile extends ClickableTile
 	{
 		super.update();
 		
-		if ( isClicked )
+		if ( isClicked && !isFilled)
 		{
 			trace("spawning new traptile");
+			isFilled = true;
 			new TrapTile(xCoord, yCoord, 40, 40, "img/marker.png", layer, 0);
 		}
 	}
