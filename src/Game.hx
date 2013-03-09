@@ -23,8 +23,13 @@ class Game extends JKGame
 	
 	private function setupPlayArea() 
 	{		
-		var fgLayer : JKLayer = new JKLayer(stage);	
-		var playArea : PlayArea = new PlayArea(10, 10, Lib.stage);
-		playArea.populateTileMap(FloorTile, [10, 10, 40, 40, "img/tile.png", Lib.stage]);		
+		var bgLayer : JKLayer = new JKLayer(stage);
+		var playAreaLayer : JKLayer = new JKLayer(bgLayer);
+		
+		var playArea : PlayArea = new PlayArea(10, 10, playAreaLayer);
+		playArea.populateTileMap(FloorTile, [10, 10, 40, 40, "img/tile.png", playAreaLayer]);
+		
+		playAreaLayer.x = (Lib.stage.width / 2) - ((playArea.width * 40) /2);
+		playAreaLayer.y = 50;
 	}
 }
